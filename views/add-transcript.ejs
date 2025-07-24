@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 8px;">
+                <form action="/add-transcript" method="POST" enctype="multipart/form-data">
+                    <h1 style="text-align: center;">Add Transcript</h1>
+                    <br>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" autocomplete="off" required>
+                    <br>
+                    <label for="spotify">Spotify Link</label>
+                    <input type="text" name="spotify" autocorrect="off" required>
+                    <br>
+                    <label for="hero">Hero Image</label>
+                    <input type="file" name="hero" accept="image/*" required>
+                    <br>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" required></textarea>
+                    <br>
+                    <label for="catagory">Podcast Catagory</label>
+                    <select name="catagory" id="catagory">
+                        <option value="can">Can You Feel So Now?</option>
+                        <option value="called">Called to the Work</option>
+                        <option value="stead">Steadfast in Christ</option>
+                    </select>
+                    <div style="text-align: center;">
+                        <button>Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

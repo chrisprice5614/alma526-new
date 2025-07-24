@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 8px;">
+                <br>
+                <h1 style="text-align: center;">Contact Us</h1>
+                <p>If you would like to be a podcast or have questions/comments, fill out the form and we'll get back to you.</p>
+                <form action="/contact" method="post">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" required autocorrect="off" autocomplete="off" placeholder="John Doe">
+                    <br>
+                    <label for="email">Your Email</label>
+                    <input type="email" name="email" required autocorrect="off" autocomplete="off" placeholder="johndoe355@gmail.com">
+                    <br>
+                    <label for="message">Your Message</label>
+                    <textarea name="message" id="message" required placeholder="Write your message here"></textarea>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <div class="g-recaptcha" data-sitekey="6Lchm2ErAAAAAGGXkJ9ane8BFngVnsa8tXF_PofO"></div>
+                    </div>
+                    <br>
+                    <div style="text-align: center;">
+                        <button>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

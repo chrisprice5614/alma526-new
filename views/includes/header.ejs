@@ -1,0 +1,34 @@
+<div>
+    <% links = `
+        <a href="/">Home</a>
+        <a href="/can-you-feel-so-now">Can You Feel So Now?</a>
+        <a href="/called-to-the-work">Called to the Work</a>
+        <a href="/steadfast-in-christ">Steadfast in Christ</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact-us">Contact Us</a>
+    ` %>
+    <div class="header-links">
+        <%- links %>
+    </div>
+    <div class="mobile-links" onclick="toggleMenu()" id="mobile-menu">
+        ≡
+    </div>
+    <div class="mobile-nav" id="mobile-links">
+        <%- links %>
+    </div>
+</div>
+<script>
+    function toggleMenu(){
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.getElementById("mobile-links");
+
+
+        if(!mobileLinks.classList.contains("active")){
+            mobileMenu.textContent = "X";
+            mobileLinks.classList.add("active")
+        } else {
+            mobileMenu.textContent = "≡";
+            mobileLinks.classList.remove("active")
+        }
+    }
+</script>

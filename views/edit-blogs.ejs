@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="text-align: center;">
+                <br>
+                <h1 style="text-align: center;">Edit Blogs</h1>
+                <br>
+                <div style="text-align: center;">
+                    <a href="/add-blog"><button>Add Blog</button></a>
+                </div>
+            </div>
+            <br>
+            <div style="padding: 8px;">
+                <% if(blogs.length > 0) { %>
+                    <% blogs.forEach(blog => { %>
+                        <div class="card">
+                            <div style="display: grid;" class="waltz">
+                                <div>
+                                    <img src="/img/blogs/<%= blog.hero %>" alt="Image for <%= blog.title %>">
+                                </div>
+                                <div style="padding: 0 12px; text-align: center;">
+                                    <br>
+                                    <h2><%= blog.title %></h2>
+                                    <br>
+                                    <br>
+                                    <a href="/delete-blog/<%= blog.id %>"><button>Delete</button></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

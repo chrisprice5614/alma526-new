@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+
+     <!-- Primary Meta Tags -->
+    <title><%= transcript.title %></title>
+    <meta name="title" content="<%= transcript.title %>">
+    <meta name="description" content="Read this transcript post: <%= transcript.title %>">
+
+    <!-- Facebook / Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://alma526.com/view-transcript/<%= transcript.slug %>">
+    <meta property="og:title" content="<%= transcript.title %>">
+    <meta property="og:description" content="Read this podcast transcript: <%= transcript.title %>">
+    <meta property="og:image" content="https://alma526.com/img/transcripts/<%= transcript.hero %>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alma526.com/view-transcript/<%= transcript.slug %>">
+    <meta name="twitter:title" content="<%= transcript.title %>">
+    <meta name="twitter:description" content="Read this podcast transcript: <%= transcript.title %>">
+    <meta name="twitter:image" content="https://alma526.com/img/<%= transcript.hero %>">
+
+    <title>Echo of Me Family of Podcasts <%= transcript.title %></title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 8px;">
+                <br>
+                <h1 style="text-align: center;"><%= transcript.title %></h1>
+                <br>
+                <!-- Share Buttons -->
+                 <div>
+                    <p>Share</p>
+                 </div>
+                <div class="share-buttons" style="display: flex; gap: 1rem; font-size: 1.5rem;">
+                <a id="share-facebook" target="_blank" rel="noopener" title="Share on Facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a id="share-twitter" target="_blank" rel="noopener" title="Share on Twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <span id="copy-link" title="Copy Link" style="background: none; border: none; cursor: pointer;">
+                    <ion-icon name="link-outline"></ion-icon>
+                </span>
+                </div>
+                <br>
+                <iframe style="border-radius:12px" src="<%= transcript.spotify %>" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <br>
+                <br>
+                <div class="blog">
+                    <%- transcript.content %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const currentURL = encodeURIComponent(window.location.href);
+
+  const fbBtn = document.getElementById('share-facebook');
+  const twBtn = document.getElementById('share-twitter');
+  const copyBtn = document.getElementById('copy-link');
+
+  if (fbBtn) fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentURL}`;
+  if (twBtn) twBtn.href = `https://twitter.com/intent/tweet?url=${currentURL}`;
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    });
+  }
+});
+
+</script>
+</html>

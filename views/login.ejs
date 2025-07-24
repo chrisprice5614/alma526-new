@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 12px;">
+                <br>
+                <h1>Admin Login</h1>
+                <br>
+                <form action="login" method="POST">
+                    <label for="password">Password</label>
+                    <input type="password" autocomplete="off" name="password">
+                    <br>
+                    <div style="text-align: center;">
+                        <button>Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

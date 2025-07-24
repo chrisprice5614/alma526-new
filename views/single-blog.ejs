@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+
+    <!-- Primary Meta Tags -->
+    <title><%= blog.title %></title>
+    <meta name="title" content="<%= blog.title %>">
+    <meta name="description" content="Read this blog post: <%= blog.title %>">
+
+    <!-- Facebook / Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://alma526.com/blogs/<%= blog.slug %>">
+    <meta property="og:title" content="<%= blog.title %>">
+    <meta property="og:description" content="Read this blog post: <%= blog.title %>">
+    <meta property="og:image" content="https://alma526.com/img/blogs/<%= blog.hero %>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alma526.com/blogs/<%= blog.slug %>">
+    <meta name="twitter:title" content="<%= blog.title %>">
+    <meta name="twitter:description" content="Read this blog post: <%= blog.title %>">
+    <meta name="twitter:image" content="https://alma526.com/img/blogs/<%= blog.hero %>">
+
+
+    <title>Echo of Me Family of Podcasts <%= blog.title %></title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 8px;">
+                <br>
+                <h1 style="text-align: center;"><%= blog.title %></h1>
+                <br>
+                <div>
+                    <p>Share</p>
+                 </div>
+                <div class="share-buttons" style="display: flex; gap: 1rem; font-size: 1.5rem;">
+                <a id="share-facebook" target="_blank" rel="noopener" title="Share on Facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a id="share-twitter" target="_blank" rel="noopener" title="Share on Twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <span id="copy-link" title="Copy Link" style="background: none; border: none; cursor: pointer;">
+                    <ion-icon name="link-outline"></ion-icon>
+                </span>
+                </div>
+                <br>
+                <div class="blog">
+                    <%- blog.content %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const currentURL = encodeURIComponent(window.location.href);
+
+  const fbBtn = document.getElementById('share-facebook');
+  const twBtn = document.getElementById('share-twitter');
+  const copyBtn = document.getElementById('copy-link');
+
+  if (fbBtn) fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentURL}`;
+  if (twBtn) twBtn.href = `https://twitter.com/intent/tweet?url=${currentURL}`;
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    });
+  }
+});
+
+</script>
+</html>

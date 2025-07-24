@@ -1,0 +1,279 @@
+:root{
+    --color-light: hsl(180, 33%, 96%);
+    --color-background: hsl(180, 36%, 78%);
+    --color-active: hsl(181, 83%, 68%);
+    --color-dark: hsl(180, 40%, 2%);
+    --color-tag: hsl(0,0%,15%);
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    vertical-align: baseline;
+    font-family: "owners-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.4em;
+    color: var(--color-dark);
+
+}
+
+
+main{
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+}
+
+i{
+    font-style: italic;
+}
+
+b{
+    font-weight: 700;
+}
+
+.church{
+    font-family: "trajan-pro-3", serif;
+}
+
+header, footer{
+    background-color: var(--color-dark);
+    padding: 16px 32px;
+}
+
+footer{
+    margin: 0;
+    overflow: hidden;
+}
+
+footer a{
+    font-size: larger;
+    font-weight: 600;
+    padding: 32px;
+    color: var(--color-light);
+    text-decoration: underline;
+    text-decoration-color: rgba(84, 123, 174, 0);
+    transition: all 100ms ease-in;
+}
+
+footer a:hover{
+    color: var(--color-active);
+    text-decoration-color: var(--color-active);
+}
+
+.card{
+    background-color: var(--color-tag);
+    margin: 8px;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6), inset 3px 3px 3px rgba(255,255,255,0.2);
+}
+
+.card img{
+    border-radius: 16px;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+
+label{
+    margin-top: 32px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.share-buttons ion-icon{
+    font-size: x-large;
+    color: var(--color-dark);
+    transition: color 200ms ease-in;
+}
+
+.share-buttons ion-icon:hover{
+    color: var(--color-active)
+}
+
+form{
+    border: solid 1px rgba(0,0,0,0.1);
+    padding: 12px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.7), inset 3px 3px 3px #fff, inset -3px -3px 3px rgba(0,0,0,0.3);
+    border-radius: 16px;
+}
+
+.blog p{
+    padding: 16px 8px;
+}
+
+input[type=text], input[type=email], input[type=password], textarea, input[type=file], select{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px rgba(0,0,0,0.4);
+    background-color: var(--color-light);
+    border-radius: 16px;
+    padding: 12px;
+    font-family: "owners-text", sans-serif;
+    box-shadow: inset 3px 3px 3px rgba(0,0,0,0.2), inset -3px -3px 3px rgba(255,255,255,1);
+    transition: all 200ms ease-in;
+}
+
+input[type=text]:hover, input[type=email]:hover, input[type=password]:hover, textarea:hover{
+    border: solid 1px rgba(0,0,0,0.8);
+}
+
+input[type=text]:focus, input[type=email]:focus, textarea:focus{
+    border: solid 1px var(--color-active);
+}
+
+button{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.7), inset 3px 3px 3px #fff, inset -3px -3px 3px rgba(0,0,0,0.3);
+    padding: 16px 64px;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: larger;
+    max-width: fit-content;
+    margin: 12px 0;
+    transition: all 200ms ease-in;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.1), inset -3px -3px 3px #fff, inset 3px 3px 3px rgba(0,0,0,0.3);
+}
+
+.card p, .card h1, .card h2{
+    color: var(--color-light);
+}
+
+.header-links{
+    text-align: center;
+}
+
+.header-links a{
+    font-size: larger;
+    font-weight: 600;
+    padding: 32px;
+    color: var(--color-light);
+    text-decoration: underline;
+    text-decoration-color: rgba(84, 123, 174, 0);
+    transition: all 100ms ease-in;
+}
+
+.header-links a:hover{
+    color: var(--color-active);
+    text-decoration-color: var(--color-active);
+}
+
+.mobile-links{
+    display: none;
+    color: var(--color-light);
+    font-size: xx-large;
+    font-weight: 600;
+    text-align: center;
+    padding: 16px;
+}
+
+.mobile-nav{
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    width: 100%;
+    position: fixed;
+    left: 0;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden; /* prevents content from leaking out */
+    pointer-events: none; /* disables clickability */
+    transition: all 200ms ease-in;
+}
+
+.mobile-nav.active{
+    left: 0;
+    max-height: 500px;
+    width: 100%;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.mobile-nav a{
+    text-align: center;
+    font-size: large;
+    padding: 12px 0;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+    margin: 12px auto;
+    display: block;
+}
+
+.main-body{
+    background-color: var(--color-light);
+    border-radius: 16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tag{
+    background-color: var(--color-tag);
+    color: var(--color-light);
+    border: solid 2px var(--color-light);
+    border-radius: 16px;
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.7);
+    transform: translateY(0px);
+    padding: 16px 64px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    transition: transform 200ms ease-in, box-shadow 200ms ease-in;
+}
+
+.tag h1, .tag p{
+    color: var(--color-light);
+}
+
+.tag:hover{
+    transform: translateY(3px);
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+}
+
+.waltz{
+    grid-template-columns: 1fr 2fr;
+}
+
+@media (max-width: 1280px) {
+    header{
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+    .header-links{
+        display: none;
+    }
+    .mobile-links{
+        display: block;
+    }
+    .main-body{
+        width: 80%;
+    }
+}
+
+@media (max-width: 784px){
+    .main-body{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .waltz{
+        grid-template-columns: 1fr 1fr;
+    }
+}

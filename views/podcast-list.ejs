@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 12px;">
+                <h1 style="text-align: center;"><%= podcastName %></h1>
+                <p style="padding: 12px 64px"><%= podcastDescription %></p>
+                <br>
+                <iframe style="border-radius:12px" src="<%= podcastSpotify %>" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <br>
+                <br>
+                <div style="text-align: center;">
+                    <a href="<%= podcastEpisodes %>" target="_blank"><button>More Episodes</button></a>
+                </div>
+                <br>
+                <h1 style="text-align: center;">Episodes with Transcripts</h1>
+                <br>
+                <% if(transcripts.length > 0) { %>
+                    <% transcripts.forEach(transcript => { %>
+                        <div class="card">
+                            <div style="display: grid;" class="waltz">
+                                <div>
+                                    <img src="/img/<%= transcript.hero %>" alt="Image for <%= transcript.title %>">
+                                </div>
+                                <div style="padding: 0 12px; text-align: center;">
+                                    <br>
+                                    <h2><%= transcript.title %></h2>
+                                    <br>
+                                    <% if(transcript.catagory == "can") { %><p>Can You Feel So Now?</p><% } %>
+                                    <% if(transcript.catagory == "called") { %><p>Called to the Work</p><% } %>
+                                    <% if(transcript.catagory == "stead") { %><p>Steadfast in Christ</p><% } %>
+                                    <br>
+                                    <a href="/view-transcript/<%= transcript.slug %>"><button>View</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

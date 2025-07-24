@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="text-align: center;">
+                <br>
+                <h1 style="text-align: center;">Edit Transcripts</h1>
+                <br>
+                <div style="text-align: center;">
+                    <a href="/add-transcript"><button>Add Transcript</button></a>
+                </div>
+            </div>
+            <br>
+            <div style="padding: 8px;">
+                <% if(transcripts.length > 0) { %>
+                    <% transcripts.forEach(transcript => { %>
+                        <div class="card">
+                            <div style="display: grid;" class="waltz">
+                                <div>
+                                    <img src="/img/<%= transcript.hero %>" alt="Image for <%= transcript.title %>">
+                                </div>
+                                <div style="padding: 0 12px; text-align: center;">
+                                    <br>
+                                    <h2><%= transcript.title %></h2>
+                                    <br>
+                                    <% if(transcript.catagory == "can") { %><p>Can You Feel So Now?</p><% } %>
+                                    <% if(transcript.catagory == "called") { %><p>Called to the Work</p><% } %>
+                                    <% if(transcript.catagory == "stead") { %><p>Steadfast in Christ</p><% } %>
+                                    <br>
+                                    <a href="/edit-transcript/<%= transcript.id %>"><button>Edit</button></a>
+                                    <br>
+                                    <br>
+                                    <a href="/delete-transcript/<%= transcript.id %>"><button>Delete</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>

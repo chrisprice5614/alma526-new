@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <%- include("includes/head") %>
+    <title>Echo of Me Family of Podcasts</title>
+</head>
+<body>
+    <header>
+        <%- include("includes/header") %>
+    </header>
+    <main>
+        <div class="main-body">
+            <div style="padding: 8px;">
+                <form action="/edit-transcript/<%= transcript.id %>" method="POST" enctype="multipart/form-data">
+                    <h1 style="text-align: center;">Add Transcript</h1>
+                    <br>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" autocomplete="off" required value="<%= transcript.title %>">
+                    <br>
+                    <label for="spotify">Spotify Link</label>
+                    <input type="text" name="spotify" autocorrect="off" required value="<%= transcript.spotify %>">
+                    <br>
+                    <label for="hero">Hero Image</label>
+                    <input type="file" name="hero" accept="image/*">
+                    <br>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" required><%= transcript.content %></textarea>
+                    <br>
+                    <label for="catagory">Podcast Catagory</label>
+                    <select name="catagory" id="catagory">
+                        <option value="can">Can You Feel So Now?</option>
+                        <option value="called" <% if(transcript.catagory == "called") { %> selected <% } %>>Called to the Work</option>
+                        <option value="stead" <% if(transcript.catagory == "stead") { %> selected <% } %>>Steadfast in Christ</option>
+                    </select>
+                    <div style="text-align: center;">
+                        <button>Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include("includes/footer") %>
+    </footer>
+</body>
+</html>
